@@ -10,7 +10,7 @@ pipeline {
         stage('Create Docker Image') {
             steps {
                 script {
-                    docker.build("jks_img:${env.BUILD_ID}")
+                    docker.build('jks_img', '--no-cache=true dockerbuild')
                 }
             }
         }
