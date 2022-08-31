@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Create Docker Image') {
             steps {
-                sh 'docker build -t jks_img'
+                docker.build("jks_img:${env.BUILD_ID}")
             }
         }
         stage('Docker Run') {
