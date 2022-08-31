@@ -1,0 +1,8 @@
+version: '2.7.0'
+services:
+    jks: 
+        image: jks_img
+        stdin_open: true 
+        tty: true 
+        entrypoint: bash
+        
