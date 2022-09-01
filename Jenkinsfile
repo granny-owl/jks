@@ -8,10 +8,11 @@ pipeline {
             }
         }
         stage('Create Docker Image') {
+            checkout scm
+            
             steps {
                 script {
-                    checkout scm
-                    sh 'docker build -t jks_img .'
+                    def customImage = docker.build("jks_img:${env.BUILD_ID}")
                 }
             }
         }
