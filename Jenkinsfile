@@ -11,7 +11,7 @@ pipeline {
             steps {
                 script {
                     checkout scm
-                    def customImage = docker.build("jks_img")
+                    sh 'docker build -t jks_img .'
                 }
             }
         }
