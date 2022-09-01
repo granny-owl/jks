@@ -1,6 +1,5 @@
 pipeline {
     agent any
-    checkout scm
 
     stages {
         stage('Start') {
@@ -11,7 +10,8 @@ pipeline {
         stage('Create Docker Image') {
             steps {
                 script {
-                    sh 'docker build -t jks_img'
+                    checkout scm
+                    sh 'docker build -t jks_img .'
                 }
             }
         }
