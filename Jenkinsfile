@@ -4,19 +4,21 @@ pipeline {
     stages {
         stage('Start') {
             steps {
-                echo 'Building..'
+                echo 'Starting..'
             }
         }
         stage('Create Docker Image') {
             steps {
                 script {
-                    docker.build('jks_img')
+                    sh 'docker build -t jks_img'
                 }
             }
         }
         stage('Docker Run') {
             steps {
-                sh 'docker compose up'
+                script {
+                    sh 'docker compose up'
+                }
             }
         }
     }
